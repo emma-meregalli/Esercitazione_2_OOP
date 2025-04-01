@@ -19,6 +19,6 @@ int main(void) {
     std::cout<<"("<<z1<<")"<<" * "<<"("<<z2<<")"<<" = "<<z1*z2<<std::endl;
     std::cout<<"("<<z1<<")"<<" * "<<2.0<<" = "<<z1*2.0<<std::endl;
     std::cout<<2.0<<" * "<<"("<<z1<<")"<<" = "<<2.0*z1<<std::endl;
-    
+
     return 0;    
 }

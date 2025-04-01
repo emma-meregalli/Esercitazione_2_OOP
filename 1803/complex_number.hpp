@@ -34,15 +34,6 @@ class complex_number
         return z_im;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const complex_number& z) {
-        os<<z.z_re;
-        if(z.z_im>=0)
-            os<<"+"<<z.z_im<<"i";
-        else
-            os<<z.z_im<<"i";
-        return os;
-	}
-
     complex_number operator+(const complex_number& other) const{
         return complex_number(z_re+other.z_re, z_im+other.z_im);
 	}
@@ -69,6 +60,18 @@ class complex_number
         return complex_number(z_re*s, z_im*s);
 	}
 };
+
+template <typename T> 
+requires std::floating_point<T>
+std::ostream& operator<<(std::ostream& os, const complex_number<T>& z) {
+    if(z.imag()==0)
+        os<<z.real();
+    if(z.imag()>0)
+        os<<z.real()<<"+"<<z.imag()<<"i"; 
+    else
+        os<<z.real()<<z.imag()<<"i";
+    return os;
+}
 
 template<typename T>
 complex_number<T>
